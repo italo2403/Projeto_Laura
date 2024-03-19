@@ -1,0 +1,72 @@
+main.dart
+
+import 'package:flutter/material.dart';
+import 'TelasFotos.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'Projeto Maria Laura',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: MyHomePage(title: 'Projeto Maria Laura'),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  final String title;
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue,
+      appBar: AppBar(
+        title: Text(title),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => TelasFotos()),
+            );
+          },
+          child: Text('Clique para acessar as fotos'),
+        ),
+      ),
+    );
+  }
+}
+
+
+TelasFotos.dart
+import 'package:flutter/material.dart';
+
+class TelasFotos extends StatelessWidget {
+  const TelasFotos({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.blue,
+      body: ListView(
+        children: [
+          Image.asset("assets/DSC_2896.JPG"),
+          Image.asset("assets/IMG_20240107_122228.jpg"),
+          Image.asset("assets/IMG_20240209_155812.jpg"),
+          Image.asset("assets/IMG_20240211_170357.jpg"),
+          Image.asset("assets/DSC_2868.JPG"),
+          //
+        ],
+      ),
+    );
+  }
+}
